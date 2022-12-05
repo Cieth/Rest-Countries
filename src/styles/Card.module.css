@@ -1,5 +1,6 @@
 .Card {
   display: flex;
+  width: 17rem;
   flex-direction: column;
   background-color: white;
   margin: 1rem;
@@ -12,13 +13,16 @@
   margin: 1rem;
 }
 .CardInfo1 {
-  margin: 1rem 0;
+  margin-bottom: 1rem;
   font-size: 1.1rem;
 }
 .CardInfo2 {
   display: flex;
   flex-direction: column;
   row-gap: 0.3rem;
-  margin-bottom: 1.3rem;
+  margin-bottom: 0.8rem;
   font-size: 0.9rem;
+}
+img {
+  width: 100%;
 }

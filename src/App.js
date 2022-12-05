@@ -56,48 +56,80 @@ function App() {
   return (
     <div className='App'>
       <Navbar />
-      <div className='ManageData'>
-        <input
-          onChange={handleInput}
-          className='input'
-          placeholder='Search for a country...'
-          type='text'
-        />
-        {error ? <>No ocurrences</> : <></>}
-        <select onChange={handleSelect} className='select'>
-          <option value='' disabled selected>
-            Filter by region
-          </option>
-          <option value='all'>All</option>
-          {regions.map((region, i) => {
-            return (
-              <option value={region} key={i}>
-                {region}
-              </option>
-            );
-          })}
-        </select>
-      </div>
-
-      <div
-        style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}
-      >
-        {loading ? (
-          <>Loading</>
+      <div className='Main'>
+        {error ? (
+          <div style={{ textAlign: 'center', color: 'grey' }}>
+            No ocurrences
+          </div>
         ) : (
-          data.map((item, i) => {
-            return (
-              <Card
-                key={i}
-                img={item.flags.png}
-                name={item.name.official}
-                population={item.population}
-                region={item.region}
-                capital={item.capital}
-              />
-            );
-          })
+          <></>
         )}
+
+        <div className='ManageData'>
+          <div className='input-wrapper'>
+            <input
+              onChange={handleInput}
+              className='input'
+              placeholder='Search for a country...'
+              type='text'
+            />
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              class='input-icon'
+              viewBox='0 0 512 512'
+            >
+              <title>Search</title>
+              <path
+                d='M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z'
+                fill='none'
+                stroke='currentColor'
+                stroke-miterlimit='10'
+                stroke-width='32'
+              />
+              <path
+                fill='none'
+                stroke='currentColor'
+                stroke-linecap='round'
+                stroke-miterlimit='10'
+                stroke-width='32'
+                d='M338.29 338.29L448 448'
+              />
+            </svg>
+          </div>
+
+          <select onChange={handleSelect} className='select'>
+            <option value='' disabled selected>
+              Filter by region
+            </option>
+            <option value='all'>All</option>
+            {regions.map((region, i) => {
+              return (
+                <option value={region} key={i}>
+                  {region}
+                </option>
+              );
+            })}
+          </select>
+        </div>
+
+        <div className='Container'>
+          {loading ? (
+            <>Loading</>
+          ) : (
+            data.map((item, i) => {
+              return (
+                <Card
+                  key={i}
+                  img={item.flags.png}
+                  name={item.name.official}
+                  population={item.population}
+                  region={item.region}
+                  capital={item.capital}
+                />
+              );
+            })
+          )}
+        </div>
       </div>
     </div>
   );

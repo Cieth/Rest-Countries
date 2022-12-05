@@ -7,20 +7,26 @@
   font-family: 'Nunito Sans';
   background-color: rgb(245, 245, 245);
 }
-
+.Main {
+  margin: 2.7rem;
+}
 .ManageData {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   margin: 1rem;
   row-gap: 1rem;
 }
 
 .input {
-  width: 100%;
+  width: 375px;
   background-color: white;
   border: 1px solid white;
   border-radius: 10px;
   height: 3rem;
+  box-sizing: border-box;
+  color: #191919;
+  padding: 15px 15px 15px 35px;
 }
 .input::placeholder {
   color: grey;
@@ -28,7 +34,7 @@
   padding: 1rem;
 }
 .select {
-  width: 50%;
+  width: 175px;
   background-color: white;
   border: 1px solid white;
   border-radius: 10px;
@@ -40,6 +46,39 @@ input {
 select {
   text-indent: 3px;
 }
+svg {
+  width: 20px;
+  position: relative;
+}
 
-@media (max-width: 1440) {
+.input-wrapper {
+  position: relative;
+  width: 271px;
+}
+.input-icon {
+  color: #191919;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.Container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 692px) {
+  .input {
+    width: 100%;
+  }
+  .Main {
+    margin: 0;
+  }
+  .Container {
+    justify-content: space-around;
+  }
 }
