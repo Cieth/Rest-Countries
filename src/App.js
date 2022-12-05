@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 function App() {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
-
+  const [error, setError] = useState(false);
   useEffect(() => {
     axios.get('https://restcountries.com/v3.1/all').then((info) => {
       setData(info.data);
@@ -16,6 +16,23 @@ function App() {
   }, []);
 
   const regions = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
+
+  const handleInput = (e) => {
+    const value = e.target.value;
+    if (value !== '') {
+      axios
+        .get(`https://restcountries.com/v3.1/name/${value}`)
+        .then((info) => {
+          setData(info.data);
+          setLoading(false);
+          setError(false);
+        })
+        .catch((x) => {
+          setError(true);
+          setData([]);
+        });
+    }
+  };
 
   const handleSelect = (e) => {
     setLoading(true);
@@ -41,10 +58,12 @@ function App() {
       <Navbar />
       <div className='ManageData'>
         <input
+          onChange={handleInput}
           className='input'
           placeholder='Search for a country...'
           type='text'
         />
+        {error ? <>No ocurrences</> : <></>}
         <select onChange={handleSelect} className='select'>
           <option value='' disabled selected>
             Filter by region
