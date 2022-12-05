@@ -1,23 +1,9 @@
 import React from 'react';
-
+import styles from '../styles/Navbar.module.css';
 const Navbar = () => {
   return (
-    <nav
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: '1rem 1rem',
-        backgroundColor: 'white',
-      }}
-    >
-      <h1
-        style={{
-          fontSize: '1.2rem',
-        }}
-      >
-        Where in the world?
-      </h1>
+    <nav className={styles.Nav}>
+      <h1>Where in the world?</h1>
       <span>Dark mode</span>
     </nav>
   );

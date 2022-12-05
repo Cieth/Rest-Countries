@@ -11,29 +11,52 @@ function App() {
   useEffect(() => {
     axios.get('https://restcountries.com/v3.1/all').then((info) => {
       setData(info.data);
-      console.log(info.data);
       setLoading(false);
     });
   }, []);
 
+  const regions = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
+
+  const handleSelect = (e) => {
+    setLoading(true);
+    const value = e.target.value;
+    if (value !== 'all') {
+      axios
+        .get(`https://restcountries.com/v3.1/region/${value}`)
+        .then((info) => {
+          setData(info.data);
+          setLoading(false);
+        });
+    } else {
+      axios.get('https://restcountries.com/v3.1/all').then((info) => {
+        setData(info.data);
+        setLoading(false);
+      });
+    }
+
+    //
+  };
   return (
     <div className='App'>
       <Navbar />
-      <div
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-        }}
-      >
+      <div className='ManageData'>
         <input
-          style={{ width: '80%' }}
+          className='input'
           placeholder='Search for a country...'
           type='text'
         />
-        <select style={{ width: '40%' }}>
-          <option value='Region' key='0'>
-            uwu
+        <select onChange={handleSelect} className='select'>
+          <option value='' disabled selected>
+            Filter by region
           </option>
+          <option value='all'>All</option>
+          {regions.map((region, i) => {
+            return (
+              <option value={region} key={i}>
+                {region}
+              </option>
+            );
+          })}
         </select>
       </div>
 
@@ -43,9 +66,10 @@ function App() {
         {loading ? (
           <>Loading</>
         ) : (
-          data.map((item) => {
+          data.map((item, i) => {
             return (
               <Card
+                key={i}
                 img={item.flags.png}
                 name={item.name.official}
                 population={item.population}

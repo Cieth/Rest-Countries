@@ -1,46 +1,23 @@
 import React from 'react';
-
+import styles from '../styles/Card.module.css';
 const Card = ({ img, name, population, region, capital }) => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        backgroundColor: 'white',
-        margin: '1rem',
-        borderRadius: '10px',
-      }}
-    >
+    <div className={styles.Card}>
       <div>
         <img
           style={{ borderTopLeftRadius: '10px', borderTopRightRadius: '10px' }}
           src={img}
-          alt=''
+          alt={'countries'}
         />
       </div>
 
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'right',
-          margin: '1rem',
-        }}
-      >
-        <span style={{ margin: '1rem 0', fontSize: '1.1rem' }}>
+      <div className={styles.CardInfo}>
+        <span className={styles.CardInfo1}>
           <b>{name}</b>
         </span>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            rowGap: '0.3rem',
-            marginBottom: '1.3rem',
-            fontSize: '0.9rem',
-          }}
-        >
+        <div className={styles.CardInfo2}>
           <span>
-            <b>Population:</b> {population}
+            <b>Population:</b> {population.toLocaleString('en-US')}
           </span>
           <span>
             <b>Region:</b> {region}

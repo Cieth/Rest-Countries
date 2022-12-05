@@ -1,0 +1,10 @@
+.Nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+  background-color: white;
+}
+.Nav h1 {
+  font-size: 1.2rem;
+}

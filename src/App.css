@@ -7,3 +7,39 @@
   font-family: 'Nunito Sans';
   background-color: rgb(245, 245, 245);
 }
+
+.ManageData {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem;
+  row-gap: 1rem;
+}
+
+.input {
+  width: 100%;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 10px;
+  height: 3rem;
+}
+.input::placeholder {
+  color: grey;
+  margin: 1rem;
+  padding: 1rem;
+}
+.select {
+  width: 50%;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 10px;
+  height: 3rem;
+}
+input {
+  text-indent: 10px;
+}
+select {
+  text-indent: 3px;
+}
+
+@media (max-width: 1440) {
+}

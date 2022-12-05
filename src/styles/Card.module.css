@@ -1,0 +1,24 @@
+.Card {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  margin: 1rem;
+  border-radius: 10px;
+}
+.CardInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  margin: 1rem;
+}
+.CardInfo1 {
+  margin: 1rem 0;
+  font-size: 1.1rem;
+}
+.CardInfo2 {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.3rem;
+  margin-bottom: 1.3rem;
+  font-size: 0.9rem;
+}
