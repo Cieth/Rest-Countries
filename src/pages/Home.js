@@ -1,6 +1,5 @@
 import React from 'react';
 import '../App.css';
-import Navbar from '../components/Navbar';
 import Card from '../components/Card';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
@@ -55,7 +54,6 @@ const Home = () => {
   };
   return (
     <div className='App'>
-      <Navbar />
       <div className='Main'>
         {error ? (
           <div style={{ textAlign: 'center', color: 'grey' }}>
